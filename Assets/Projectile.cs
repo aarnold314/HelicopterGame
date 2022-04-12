@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-	[SerializeField] private float damage;
-	[SerializeField] private float radius;
+	public float damage;
+	public float radius;
 
 	private void OnCollisionEnter(Collision collision)
 	{

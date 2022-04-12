@@ -3,7 +3,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	[SerializeField] private float attackSpeed;
-	[SerializeField] private float damageMult;
+	[SerializeField] private float damageMult = 1;
+	[SerializeField] private float projectileSpeed;
 
 	[SerializeField] private GameObject projectilePrefab;
 
@@ -30,5 +31,10 @@ public class Weapon : MonoBehaviour
 	private void SpawnProjectile()
 	{
 		var spawned = Instantiate(projectilePrefab);
+		var targetForce = projectileSpeed * transform.forward;
+		spawned.GetComponent<Rigidbody>().AddForce(targetForce, ForceMode.VelocityChange);
+		
+		var proj = spawned.GetComponent<Projectile>();
+		proj.damage *= damageMult;
 	}
 }
