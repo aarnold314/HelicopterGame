@@ -30,10 +30,10 @@ public class Weapon : MonoBehaviour
 
 	private void SpawnProjectile()
 	{
-		var spawned = Instantiate(projectilePrefab);
+		var spawned = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 		var targetForce = projectileSpeed * transform.forward;
 		spawned.GetComponent<Rigidbody>().AddForce(targetForce, ForceMode.VelocityChange);
-		
+
 		var proj = spawned.GetComponent<Projectile>();
 		proj.damage *= damageMult;
 	}
