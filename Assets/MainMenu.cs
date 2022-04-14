@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 	public void PlayGame()
 	{
 		// Loads the next level in the queue
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Objective1");
 	}
 
 	public void QuitGame()
