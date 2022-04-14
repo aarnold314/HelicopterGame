@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 382099847}
   - component: {fileID: 382099849}
   - component: {fileID: 382099848}
+  - component: {fileID: 382099850}
   m_Layer: 5
   m_Name: ObjectiveText
   m_TagString: Untagged
@@ -441,6 +442,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382099846}
   m_CullTransparentMesh: 1
+--- !u!114 &382099850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382099846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10ac6beedfad0e4eac394e659746b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &624029641
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +802,7 @@ GameObject:
   - component: {fileID: 938641466}
   - component: {fileID: 938641465}
   - component: {fileID: 938641464}
+  - component: {fileID: 938641467}
   m_Layer: 5
   m_Name: ObjectiveScreen
   m_TagString: Untagged
@@ -869,6 +883,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938641462}
   m_CullTransparentMesh: 1
+--- !u!114 &938641467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938641462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10ac6beedfad0e4eac394e659746b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259534184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1114,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.841114
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1702,7 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
