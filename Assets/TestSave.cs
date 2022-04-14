@@ -1,12 +1,20 @@
+using System.IO;
 using UnityEngine;
 
 public class TestSave : MonoBehaviour
 {
 	[SerializeField] private SaveManager _saveManager;
 
-	void Start()
+	private const string testSavePath = "UserData/testsave"; // This is relative to the project root
+
+	private void Start()
 	{
-		_saveManager.LoadGame("a");
-		_saveManager.SaveGame("test");
+		if (!File.Exists(testSavePath))
+		{
+			_saveManager.CreateNewSave(testSavePath);
+		}
+
+		_saveManager.LoadGame(testSavePath);
+		_saveManager.SaveGame(testSavePath);
 	}
 }
