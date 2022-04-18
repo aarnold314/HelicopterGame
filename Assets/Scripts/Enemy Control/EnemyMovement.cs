@@ -44,5 +44,18 @@ public class EnemyMovement : MonoBehaviour
         rigidbodyComponent.velocity = movement;
     }
 
-    
+    void OnCollisionEnter2D (Collision2D collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "MainCamera")
+        {
+           GetComponent<BoxCollider2D>().enabled = false;
+           StartCoroutine(EnableBox(1.0f));
+        }
+    }
+
+    IEnumerator EnableBox(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<BoxCollider2D>().enabled = true;
+    }
 }
