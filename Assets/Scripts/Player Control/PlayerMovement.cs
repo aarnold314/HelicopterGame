@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 speed = new Vector2(50, 50);
 
+    private Vector2 movement;
+    private Rigidbody2D rigidbodyComponent;
+
     // Update is called once per frame - gets input from player
     void Update()
     {
@@ -15,12 +18,22 @@ public class PlayerMovement : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
 
         // multiplication of the axis for player movement
-        Vector3 movement = new Vector3(speed.x * inputX, speed.y * inputY, 0);
+        movement = new Vector3(speed.x * inputX, speed.y * inputY);
 
         // completion of time since last frame
         movement *= Time.deltaTime;
 
-        transform.Translate(movement);
+        //transform.Translate(movement);
+
+    }
+
+    void FixedUpdate()
+    {
+        if (rigidbodyComponent == null) rigidbodyComponent = GetComponent<Rigidbody2D>();
+
+        // Apply movement to the rigidbody
+        //rigidbodyComponent.velocity = movement;
+        rigidbodyComponent.MovePosition(rigidbodyComponent.position + movement);
 
     }
 }
