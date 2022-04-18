@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
         {
             // currently disables player movement when it collides with an enemy
             // change to an explosion graphic
-           // movement.enabled = false;
+           movement.enabled = false;
         }
     }
 }
