@@ -13,7 +13,10 @@ public class Score : MonoBehaviour
     void Update()
     {
         // gets the units traveled in the x direction by player
+        if(player.position.x >= 0)
+        {
         scoreText.text = player.position.x.ToString("0");
+        }
 
 
     }

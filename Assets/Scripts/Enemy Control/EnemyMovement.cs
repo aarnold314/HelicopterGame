@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+
+    [SerializeField]
+    private float frequency = 5f;
+
+    [SerializeField] 
+    private float magnitude = 5f;
+
+    [SerializeField] 
+    private float offset = 0f;
+
     public Vector2 speed = new Vector2(10, 10);
-    public Vector2 direction = new Vector2(-1, 0);
+    public Vector2 direction;
 
     private Vector2 movement;
+    private Vector2 startPosition;
+
     private Rigidbody2D rigidbodyComponent;
 
+
+    void Start()
+    {
+        startPosition = transform.position;
+    }
     void Update()
     {
+        direction = new Vector2(-1, Mathf.Sin(Time.time * frequency + offset) * magnitude);
         movement = new Vector2(
           speed.x * direction.x,
           speed.y * direction.y);
+        //transform.position = startPosition + transform.up * Mathf.Sin(Time.time * frequency + offset) * magnitude;
     }
 
     void FixedUpdate()
@@ -24,4 +43,6 @@ public class EnemyMovement : MonoBehaviour
         // Apply movement to the rigidbody
         rigidbodyComponent.velocity = movement;
     }
+
+    
 }
