@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy-1
       objectReference: {fileID: 0}
+    - target: {fileID: 1859018988389195939, guid: 817510c3d2e5e3b4ba783f592d5d6c1a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1859018988389195966, guid: 817510c3d2e5e3b4ba783f592d5d6c1a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -529,6 +533,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1859018988389195966, guid: 817510c3d2e5e3b4ba783f592d5d6c1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237213222097582766, guid: 817510c3d2e5e3b4ba783f592d5d6c1a, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -997,6 +1005,7 @@ GameObject:
   - component: {fileID: 1416722480}
   - component: {fileID: 1416722479}
   - component: {fileID: 1416722481}
+  - component: {fileID: 1416722482}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1148,6 +1157,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 50, y: 50}
+--- !u!114 &1416722482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416722475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16d0ace7cfb48b42b7bfb681ad0f49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1747005368
 GameObject:
   m_ObjectHideFlags: 0
