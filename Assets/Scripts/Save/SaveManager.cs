@@ -2,11 +2,10 @@ using System;
 using System.IO;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Save Manager")]
+[CreateAssetMenu(menuName = "Scriptable Objects/Save Manager")]
 public class SaveManager : ScriptableObject
 {
 	private Save _activeSave;
-	// TODO: add helicopter to get its tokens and such
 
 	/// <summary>
 	/// Loads a save from the specified path as the active save.
@@ -85,5 +84,25 @@ public class SaveManager : ScriptableObject
 		};
 		_activeSave = newSave;
 		SaveGame(savePath);
+	}
+
+	public int Tokens
+	{
+		get => _activeSave.NumTokens;
+		set => _activeSave.NumTokens = value;
+	}
+
+	/// <summary>
+	/// Tries to consume count tokens. If it can, it consumes them and returns true. Otherwise returns false.
+	/// </summary>
+	public bool TryConsumeTokens(int count)
+	{
+		if (Tokens > count)
+		{
+			Tokens -= count;
+			return true;
+		}
+
+		return false;
 	}
 }

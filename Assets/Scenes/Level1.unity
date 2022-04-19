@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 1416722479}
   - component: {fileID: 1416722481}
   - component: {fileID: 1416722482}
+  - component: {fileID: 1416722483}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1631,6 +1632,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1416722481}
+--- !u!114 &1416722483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416722475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4ca4b74745706f5902dda95128fd2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helicopterData: {fileID: 11400000, guid: 0a934d99688456115b728a9ba79def09, type: 2}
 --- !u!1 &1545357257
 GameObject:
   m_ObjectHideFlags: 0
