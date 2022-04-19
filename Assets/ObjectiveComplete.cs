@@ -9,14 +9,13 @@ public class ObjectiveComplete : MonoBehaviour
     {
         if (collisionInfo.collider.tag == "Player")
         {
-           GetComponent<BoxCollider2D>().enabled = false;
-           StartCoroutine(EnableBox(1.0f));
+           Debug.Log("Touchdown");
+        //    StartCoroutine(EnableBox(1.0f));
         }
     }
 
-    IEnumerator EnableBox(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        GetComponent<BoxCollider2D>().enabled = true;
-    }
+    // IEnumerator EnableBox(float waitTime)
+    // {
+    //     yield return new WaitForSeconds(waitTime);
+    // }
 }
