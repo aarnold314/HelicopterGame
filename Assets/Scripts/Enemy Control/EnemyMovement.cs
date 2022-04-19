@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
 
     public Vector2 speed = new Vector2(10, 10);
     public Vector2 direction;
+    public PlayerMovement playerMovement;
+    public bool hit = false;
 
     private Vector2 movement;
     private Vector2 startPosition;
@@ -27,9 +29,15 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         direction = new Vector2(-1, Mathf.Sin(Time.time * frequency) * magnitude);
-        movement = new Vector2(
+       if (hit)
+       {
+           movement = new Vector2(0,0);
+       } else{
+           movement = new Vector2(
           speed.x * direction.x,
           speed.y * direction.y);
+       }
+        
         //transform.position = startPosition + transform.up * Mathf.Sin(Time.time * frequency + offset) * magnitude;
     }
 
@@ -47,6 +55,10 @@ public class EnemyMovement : MonoBehaviour
         {
            GetComponent<BoxCollider2D>().enabled = false;
            StartCoroutine(EnableBox(1.0f));
+        }
+        if (collisionInfo.collider.tag == "Player")
+        {
+            hit = true;
         }
     }
 
