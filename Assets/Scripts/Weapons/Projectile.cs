@@ -5,14 +5,16 @@ public class Projectile : MonoBehaviour
 	public float damage;
 	public float radius;
 
-	private Collider selfCollider;
+	private Collider2D _selfCollider;
 
-	private void Awake()
+	// TODO: Kill projectile when offscreen/time
+
+	private void Start()
 	{
-		selfCollider = GetComponent<Collider>();
+		_selfCollider = GetComponent<Collider2D>();
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		// No explosion when radius is small
 		if (radius <= 0)
@@ -26,7 +28,7 @@ public class Projectile : MonoBehaviour
 			var collisionsInSphere = Physics.OverlapSphere(contact.point, radius);
 			foreach (var explosionCollider in collisionsInSphere)
 			{
-				if (explosionCollider == selfCollider)
+				if (explosionCollider.GetComponent<Collider2D>() == _selfCollider)
 				{
 					continue;
 				}
@@ -40,13 +42,10 @@ public class Projectile : MonoBehaviour
 
 	private void CollideWithGameObject(GameObject collided)
 	{
-		// It's okay to hit a non-Health object, just exit early
-		var health = collided.GetComponent<Health>();
-		if (health == null)
+		// It's okay to hit a non-Health object
+		if (collided.TryGetComponent<Health>(out var health))
 		{
-			return;
+			health.Damage(damage);
 		}
-
-		health.Damage(damage);
 	}
 }
