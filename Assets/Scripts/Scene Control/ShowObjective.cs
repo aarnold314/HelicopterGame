@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ShowObjective : MonoBehaviour
 {
     public GameObject objectiveScreenUI;
+    
     [SerializeField] float waitTime = 5f;
     // add time constant
 
@@ -18,7 +19,6 @@ public class ShowObjective : MonoBehaviour
     // Update is called once per frame
     IEnumerator waiter()
     {
-
         // Shows objective screen for 10 seconds
         yield return new WaitForSecondsRealtime(waitTime);
         objectiveScreenUI.SetActive(false);

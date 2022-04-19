@@ -11,9 +11,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] 
     private float magnitude = 5f;
 
-    [SerializeField] 
-    private float offset = 0f;
-
     public Vector2 speed = new Vector2(10, 10);
     public Vector2 direction;
 
@@ -29,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
-        direction = new Vector2(-1, Mathf.Sin(Time.time * frequency + offset) * magnitude);
+        direction = new Vector2(-1, Mathf.Sin(Time.time * frequency) * magnitude);
         movement = new Vector2(
           speed.x * direction.x,
           speed.y * direction.y);
