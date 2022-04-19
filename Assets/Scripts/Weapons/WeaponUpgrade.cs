@@ -20,6 +20,7 @@ public class WeaponUpgrade : MonoBehaviour
 		_targetWeapon = helicopterData.availableWeapons[upgradeIdx];
 	}
 
+	// Tries to apply the upgrade by first attempting to consume one token, then applying the change
 	public void TryApplyUpgrade()
 	{
 		if (saveManager.TryConsumeTokens(upgradeTokenCost))
