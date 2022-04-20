@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 	private void Awake()
 	{
 		rigidbodyComponent = GetComponent<Rigidbody2D>();
+		rigidbodyComponent.freezeRotation = true;
 	}
 
 	private void FixedUpdate()

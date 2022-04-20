@@ -913,6 +913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 235513111354410879, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2484292980175521615, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1791,6 +1795,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 235513111354410879, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2484292980175521615, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2135,10 +2143,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2606,8 +2614,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 235513111354410879, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 235513111354410879, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_GravityScale
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2484292980175521615, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_RootOrder
