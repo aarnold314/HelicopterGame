@@ -1,39 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public Vector2 speed = new Vector2(50, 50);
 
-    public Vector2 speed = new Vector2(50, 50);
+	private Rigidbody2D rigidbodyComponent;
 
-    private Vector2 movement;
-    private Rigidbody2D rigidbodyComponent;
+	private void Awake()
+	{
+		rigidbodyComponent = GetComponent<Rigidbody2D>();
+	}
 
-    // Update is called once per frame - gets input from player
-    void Update()
-    {
-        // variables for x and y axis - Horizontal and Vertical vars are assigned by Unity
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+	private void FixedUpdate()
+	{
+		// variables for x and y axis - Horizontal and Vertical vars are assigned by Unity
+		float inputX = Input.GetAxis("Horizontal");
+		float inputY = Input.GetAxis("Vertical");
 
-        // multiplication of the axis for player movement
-        movement = new Vector3(speed.x * inputX, speed.y * inputY);
+		// multiplication of the axis for player movement
+		var movement = new Vector2(speed.x * inputX, speed.y * inputY);
 
-        // completion of time since last frame
-        movement *= Time.deltaTime;
+		// Scale by the time since the last FixedUpdate
+		movement *= Time.fixedDeltaTime;
 
-        //transform.Translate(movement);
-
-    }
-
-    void FixedUpdate()
-    {
-        if (rigidbodyComponent == null) rigidbodyComponent = GetComponent<Rigidbody2D>();
-
-        // Apply movement to the rigidbody
-        //rigidbodyComponent.velocity = movement;
-        rigidbodyComponent.MovePosition(rigidbodyComponent.position + movement);
-
-    }
+		// Apply movement to the rigidbody
+		//rigidbodyComponent.velocity = movement;
+		rigidbodyComponent.MovePosition(rigidbodyComponent.position + movement);
+	}
 }
