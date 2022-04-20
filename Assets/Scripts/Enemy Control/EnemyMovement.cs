@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
 	[SerializeField] private float magnitude = 5f;
 
 	public Vector2 speed = new Vector2(10, 10);
-	public PlayerMovement playerMovement;
 	public bool hit = false;
 
 	private Rigidbody2D rigidbodyComponent;
