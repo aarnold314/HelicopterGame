@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class ShowObjective : MonoBehaviour
 {
     public GameObject objectiveScreenUI;
-    
     [SerializeField] float waitTime = 5f;
-    // add time constant
 
     // Start is called before the first frame update
     void Start()

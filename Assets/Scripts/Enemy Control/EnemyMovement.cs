@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
 	public bool hit = false;
 
 	private Rigidbody2D rigidbodyComponent;
+	private const string cameraTag = "MainCamera";
+	private const string playerTag = "Player";
 
 	private void Awake()
 	{
@@ -18,13 +20,14 @@ public class EnemyMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		// Enemy move path
 		var direction = new Vector2(-1, Mathf.Sin(Time.time * frequency) * magnitude);
 		Vector2 movement;
+		// Removes enemy movement after collision
 		if (hit)
 		{
 			movement = new Vector2(0, 0);
 			Destroy(this);
-
 		}
 		else
 		{
@@ -40,13 +43,13 @@ public class EnemyMovement : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
-		if (collisionInfo.collider.tag == "MainCamera")
+		if (collisionInfo.collider.tag == cameraTag)
 		{
 			GetComponent<BoxCollider2D>().enabled = false;
 			StartCoroutine(EnableBox(1.0f));
 		}
 
-		if (collisionInfo.collider.tag == "Player")
+		if (collisionInfo.collider.tag == playerTag)
 		{
 			hit = true;
 		}

@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
 		{
 			saveManager.CreateNewSave(testSavePath);
 		}
-
 		saveManager.LoadGame(testSavePath);
 		
 		// Loads the next level in the queue

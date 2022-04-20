@@ -6,7 +6,6 @@ public class Score : MonoBehaviour
 
     // reference to player
     public Transform player;
-    // reference to text
     public Text scoreText;
 
     // Update is called once per frame
@@ -17,7 +16,5 @@ public class Score : MonoBehaviour
         {
         scoreText.text = player.position.x.ToString("0");
         }
-
-
     }
 }

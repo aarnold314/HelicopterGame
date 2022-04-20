@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
 		movement *= Time.fixedDeltaTime;
 
 		// Apply movement to the rigidbody
-		//rigidbodyComponent.velocity = movement;
 		rigidbodyComponent.MovePosition(rigidbodyComponent.position + movement);
 	}
 }
