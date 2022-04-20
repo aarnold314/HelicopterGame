@@ -33,7 +33,7 @@ public class ObjectiveComplete : MonoBehaviour
         // Shows objective screen for 10 seconds
         yield return new WaitForSecondsRealtime(waitTime);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Shop");
+        SceneManager.LoadScene("Menu");
         // Time.timeScale = 1f;
 
         // yield return new WaitForSeconds(waitTime);
