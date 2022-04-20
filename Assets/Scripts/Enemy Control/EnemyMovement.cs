@@ -23,6 +23,8 @@ public class EnemyMovement : MonoBehaviour
 		if (hit)
 		{
 			movement = new Vector2(0, 0);
+			Destroy(this);
+
 		}
 		else
 		{
