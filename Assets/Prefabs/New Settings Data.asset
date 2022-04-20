@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75046165025941d2b03a11ae61e45541, type: 3}
-  m_Name: Save Manager
+  m_Script: {fileID: 11500000, guid: d0ba052bc01a45bc83d6d80a221ec106, type: 3}
+  m_Name: New Settings Data
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 11400000, guid: 9529cca4d38648122ba1d29ed9d417bb, type: 2}
+  saveFolder: UserData

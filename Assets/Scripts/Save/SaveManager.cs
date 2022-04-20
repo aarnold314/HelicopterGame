@@ -5,33 +5,35 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Save Manager")]
 public class SaveManager : ScriptableObject
 {
+	[SerializeField] private SettingsData settingsData;
+
 	private Save _activeSave;
 
 	/// <summary>
 	/// Loads a save from the specified path as the active save.
 	/// </summary>
-	/// <param name="savePath">The path to load from</param>
-	public void LoadGame(string savePath)
+	public void LoadGame(string fileName)
 	{
-		Debug.Log($"Loading game from {savePath}");
+		var fullPath = Path.Combine(settingsData.saveFolder, fileName);
+		Debug.Log($"Loading game from {fullPath}");
 
 		try
 		{
-			var saveText = File.ReadAllText(savePath);
+			var saveText = File.ReadAllText(fullPath);
 			var loadedSave = JsonUtility.FromJson<Save>(saveText);
 			_activeSave = loadedSave;
 		}
 		catch (Exception e) when (e is ArgumentException || e is PathTooLongException)
 		{
-			Debug.Log($"invalid path: {savePath}");
+			Debug.Log($"invalid path: {fullPath}");
 		}
 		catch (DirectoryNotFoundException)
 		{
-			Debug.Log($"Path not found: {savePath}");
+			Debug.Log($"Path not found: {fullPath}");
 		}
 		catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
 		{
-			Debug.Log($"Unable to load from path {savePath}");
+			Debug.Log($"Unable to load from path {fullPath}");
 		}
 
 		Debug.Log("Successfully Loaded");
@@ -40,14 +42,14 @@ public class SaveManager : ScriptableObject
 	/// <summary>
 	/// Saves the active save to the specified path.
 	/// </summary>
-	/// <param name="savePath">The path to save to</param>
-	public void SaveGame(string savePath)
+	public void SaveGame(string fileName)
 	{
-		Debug.Log($"Saving game to {savePath}");
+		var fullPath = Path.Combine(settingsData.saveFolder, fileName);
+		Debug.Log($"Saving game to {fullPath}");
 
 		var json = JsonUtility.ToJson(_activeSave);
 
-		var parentDir = Directory.GetParent(savePath);
+		var parentDir = Directory.GetParent(fullPath);
 		// If the parent of the specified path does not exist, create it
 		if ((parentDir != null) && !parentDir.Exists)
 		{
@@ -56,19 +58,19 @@ public class SaveManager : ScriptableObject
 
 		try
 		{
-			File.WriteAllText(savePath, json);
+			File.WriteAllText(fullPath, json);
 		}
 		catch (Exception e) when (e is ArgumentException || e is PathTooLongException)
 		{
-			Debug.Log($"invalid path: {savePath}");
+			Debug.Log($"invalid path: {fullPath}");
 		}
 		catch (DirectoryNotFoundException)
 		{
-			Debug.Log($"Path not found: {savePath}");
+			Debug.Log($"Path not found: {fullPath}");
 		}
 		catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
 		{
-			Debug.Log($"Unable to save to path {savePath}");
+			Debug.Log($"Unable to save to path {fullPath}");
 		}
 
 		Debug.Log("Successfully Saved");
