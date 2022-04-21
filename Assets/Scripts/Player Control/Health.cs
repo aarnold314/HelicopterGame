@@ -5,14 +5,12 @@ public class Health : MonoBehaviour
 {
 	[field: SerializeField] public float CurrentHealth { get; private set; }
 	[field: SerializeField] public float MaxHealth { get; private set; }
-	[field: SerializeField] public static bool isDead { get; private set; }
 
 	public UnityEvent onKilled;
 	public UnityEvent<float> onDamageTaken;
 
 	public void Damage(float damage)
 	{
-		isDead = false;
 		// Calculates the real damage taken to pass to OnDamageTaken
 		var oldHealth = CurrentHealth;
 		CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
@@ -22,7 +20,6 @@ public class Health : MonoBehaviour
 
 		if (CurrentHealth <= 0)
 		{
-			isDead = true;
 			Killed();
 		}
 	}
