@@ -20,7 +20,7 @@ public class ShowObjective : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && taskScreen.active)
+        if (Input.GetKeyDown(KeyCode.Return) && taskScreen.activeSelf)
         {
             SceneManager.LoadScene("Level1");
         }
