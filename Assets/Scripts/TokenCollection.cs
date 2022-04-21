@@ -5,7 +5,7 @@ using UnityEngine;
 public class TokenCollection : MonoBehaviour
 {
     //Keep track of total picked coins 
-    public static int totalTokens = 0;
+    public static int totalCoins = 0;
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class TokenCollection : MonoBehaviour
         if (c2d.CompareTag("Player"))
         {
             //Add coin to counter
-            totalTokens++;
+            totalCoins++;
             
             //Destroy coin
             Destroy(gameObject);
