@@ -3,16 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class TempShopNav : MonoBehaviour
 {
-    [SerializeField] public string sceneName;
+    // public static int level = 0;
+    public string[] levels = {"Level1", "Level2", "Level3"};
+    public int index = 0;
+    // [SerializeField] public string sceneName;
 
-    // void Start()
-    // {
-    //     // scene = SceneManager.GetActiveScene();
-    //     // Debug.Log("Active Scene name is: " + scene.name + "\nActive Scene index: " + scene.buildIndex);
-    // }
+    void Start()
+    {
+        index += 1;
+        Debug.Log(index);
+
+        // scene = SceneManager.GetActiveScene();
+        // Debug.Log("Active Scene name is: " + scene.name + "\nActive Scene index: " + scene.buildIndex);
+    }
 
     public void NextScene ()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(levels[index]);
     }
 }
