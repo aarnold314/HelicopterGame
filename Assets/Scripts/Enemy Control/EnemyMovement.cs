@@ -53,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
 		if (collisionInfo.collider.tag == playerTag)
 		{
 			rigidbodyComponent.freezeRotation = false;
+			GetComponent<BoxCollider2D>().enabled = false;
 			hit = true;
 		}
 	}

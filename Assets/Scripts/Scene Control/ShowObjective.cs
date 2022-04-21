@@ -14,17 +14,22 @@ public class ShowObjective : MonoBehaviour
     void Start()
     {
         // levelLoader = GetComponent<LevelLoader>();
-        StartCoroutine(waiter());
+        // StartCoroutine(waiter());
     }
 
     // Update is called once per frame
-    IEnumerator waiter()
+    void Update ()
     {
-        // Shows objective screen for 10 seconds
-        yield return new WaitForSecondsRealtime(waitTime);
-        // levelLoader.LoadLevel(sceneIndex);
-        
-
-        SceneManager.LoadScene("Level1");
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Level1");
+        }
     }
+    // IEnumerator waiter()
+    // {
+        
+    //     // Shows objective screen for 10 seconds
+    //     // yield return new WaitForSecondsRealtime(waitTime);
+    //     // SceneManager.LoadScene("Level1");
+    // }
 }

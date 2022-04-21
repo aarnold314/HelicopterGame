@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+	public GameObject player;
 	[SerializeField] private PlayerMovement playerMovement;
 	[SerializeField] private GameObject explosionEffect;
 
@@ -13,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Disable the player movement when killed and go to game over
 		playerMovement.enabled = false;
+
+		player.GetComponent<BoxCollider2D>().enabled = false;
 
 		// Spawn an explosion when the player dies
 		var explosionEffectIns = Instantiate(explosionEffect, transform.position, Quaternion.identity);

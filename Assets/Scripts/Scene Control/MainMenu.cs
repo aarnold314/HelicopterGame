@@ -1,5 +1,7 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class MainMenu : MonoBehaviour
 			saveManager.CreateNewSave(testSavePath);
 		}
 		saveManager.LoadGame(testSavePath);
+		SceneManager.LoadScene("Objective1");
 	}
 
 	public void QuitGame()
