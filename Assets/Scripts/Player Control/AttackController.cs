@@ -30,7 +30,7 @@ public class AttackController : MonoBehaviour
 		var click = Input.GetMouseButtonDown(leftClickButton);
 		var mouseScreenPos = Input.mousePosition;
 		var targetPos = Camera.main!.ScreenToWorldPoint(mouseScreenPos);
-		if (click)
+		if (click || Input.GetKeyDown(KeyCode.Space))
 		{
 			_weapon.Fire(transform.position, targetPos);
 			_weaponCooldown = 1 / _weapon.attackSpeed;
