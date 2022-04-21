@@ -10,7 +10,6 @@ public class PauseControl : MonoBehaviour
     {
 	  if (Input.GetKeyDown("escape"))
 	  {
-		print("escape was pressed");
 		gameIsPaused = !gameIsPaused;
 		PauseGame();
 	  }
