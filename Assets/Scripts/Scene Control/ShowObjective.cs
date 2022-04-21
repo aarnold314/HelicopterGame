@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ShowObjective : MonoBehaviour
 {
     // public LevelLoader levelLoader;
-    public GameObject objectiveScreenUI;
-    [SerializeField] float waitTime = 5f;
+    public GameObject objectiveScreen;
+    public GameObject taskScreen;
     [SerializeField] int sceneIndex;
 
     // Start is called before the first frame update
@@ -20,16 +20,22 @@ public class ShowObjective : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && taskScreen.active)
         {
             SceneManager.LoadScene("Level1");
         }
-    }
-    // IEnumerator waiter()
-    // {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            objectiveScreen.SetActive(false);
+            taskScreen.SetActive(true);
+        }
         
-    //     // Shows objective screen for 10 seconds
-    //     // yield return new WaitForSecondsRealtime(waitTime);
-    //     // SceneManager.LoadScene("Level1");
-    // }
+    }
+    IEnumerator waiter()
+    {
+        
+        // Shows objective screen for 10 seconds
+        yield return new WaitForSecondsRealtime(2f);
+        // SceneManager.LoadScene("Level1");
+    }
 }
