@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 public class SaveManager : ScriptableObject
 {
 	[SerializeField] private SettingsData settingsData;
+	[SerializeField] private HelicopterData helicopterData;
 
 	private Save _activeSave;
 
@@ -34,6 +36,56 @@ public class SaveManager : ScriptableObject
 		catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
 		{
 			Debug.Log($"Unable to load from path {fullPath}");
+		}
+
+		// Apply upgrades
+		foreach (var upgrade in _activeSave.weaponUpgrades)
+		{
+			var weapon = helicopterData.availableWeapons[upgrade.WeaponIndex];
+			switch (upgrade.UpgradeType)
+			{
+				case WeaponUpgrade.UpgradeType.AttackDamage:
+				{
+					if (upgrade.UpgradeData.IsMultiplier)
+					{
+						weapon.damageMult *= upgrade.UpgradeData.Value;
+					}
+					else
+					{
+						weapon.damageMult += upgrade.UpgradeData.Value;
+					}
+
+					break;
+				}
+				case WeaponUpgrade.UpgradeType.AttackSpeed:
+				{
+					if (upgrade.UpgradeData.IsMultiplier)
+					{
+						weapon.attackSpeed *= upgrade.UpgradeData.Value;
+					}
+					else
+					{
+						weapon.attackSpeed += upgrade.UpgradeData.Value;
+					}
+
+					break;
+				}
+				case WeaponUpgrade.UpgradeType.ProjectileSpeed:
+				{
+					if (upgrade.UpgradeData.IsMultiplier)
+					{
+						weapon.projectileSpeed *= upgrade.UpgradeData.Value;
+					}
+					else
+					{
+						weapon.projectileSpeed += upgrade.UpgradeData.Value;
+					}
+
+					break;
+				}
+			}
+
+			weapon.upgradesApplied[upgrade.UpgradeType] += 1;
 		}
 
 		Debug.Log("Successfully Loaded");
@@ -76,22 +128,47 @@ public class SaveManager : ScriptableObject
 		Debug.Log("Successfully Saved");
 	}
 
-	public void CreateNewSave(string savePath)
+	public void CreateNewSave(string saveName)
 	{
 		var newSave = new Save
 		{
-			ActiveLevel = 1,
-			NumTokens = 0,
-			Difficulty = 0,
+			activeLevel = 1,
+			numTokens = 10,
+			difficulty = 0,
+			weaponUpgrades = new List<SavedUpgrade>(),
 		};
 		_activeSave = newSave;
-		SaveGame(savePath);
+		SaveGame(saveName);
 	}
+
+	public bool SaveExists(string saveName)
+	{
+		return File.Exists(Path.Combine(settingsData.saveFolder, saveName));
+	}
+
+	public void CreateSaveIfNotExists(string saveName)
+	{
+		if (!SaveExists(saveName))
+		{
+			CreateNewSave(saveName);
+		}
+	}
+
+	public void AddWeaponUpgrade(SavedUpgrade upgrade)
+	{
+		_activeSave.weaponUpgrades.Add(upgrade);
+	}
+
+	public Action<int> OnTokensChanged;
 
 	public int Tokens
 	{
-		get => _activeSave.NumTokens;
-		set => _activeSave.NumTokens = value;
+		get => _activeSave.numTokens;
+		set
+		{
+			_activeSave.numTokens = value;
+			OnTokensChanged?.Invoke(value);
+		}
 	}
 
 	/// <summary>
@@ -99,7 +176,7 @@ public class SaveManager : ScriptableObject
 	/// </summary>
 	public bool TryConsumeTokens(int count)
 	{
-		if (Tokens > count)
+		if (Tokens >= count)
 		{
 			Tokens -= count;
 			return true;

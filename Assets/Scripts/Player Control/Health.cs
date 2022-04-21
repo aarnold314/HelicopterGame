@@ -11,6 +11,12 @@ public class Health : MonoBehaviour
 
 	public void Damage(float damage)
 	{
+		// Already dead, do nothing
+		if (CurrentHealth <= 0)
+		{
+			return;
+		}
+
 		// Calculates the real damage taken to pass to OnDamageTaken
 		var oldHealth = CurrentHealth;
 		CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
@@ -26,6 +32,12 @@ public class Health : MonoBehaviour
 
 	public void Kill()
 	{
+		// Already dead, do nothing
+		if (CurrentHealth <= 0)
+		{
+			return;
+		}
+
 		// Killing is equal to dealing the entire current health as damage
 		onDamageTaken.Invoke(CurrentHealth);
 		CurrentHealth = 0;
