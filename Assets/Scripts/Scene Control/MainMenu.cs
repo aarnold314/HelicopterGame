@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,10 +11,7 @@ public class MainMenu : MonoBehaviour
 
 	public void PlayGame()
 	{
-		if (!File.Exists(testSavePath))
-		{
-			saveManager.CreateNewSave(testSavePath);
-		}
+		saveManager.CreateSaveIfNotExists(testSavePath);
 		saveManager.LoadGame(testSavePath);
 		SceneManager.LoadScene("Objective1");
 	}

@@ -11,6 +11,8 @@ public class WeaponUpgrade : MonoBehaviour
 	[SerializeField] private UpgradeType upgradeType;
 	[SerializeField] private UpgradeData upgradeData;
 
+	[SerializeField] private UpgradeCountDisplay upgradeCountDisplay;
+
 	private WeaponType _targetWeapon;
 
 	private const int upgradeTokenCost = 1;
@@ -23,6 +25,12 @@ public class WeaponUpgrade : MonoBehaviour
 	// Tries to apply the upgrade by first attempting to consume one token, then applying the change
 	public void TryApplyUpgrade()
 	{
+		// Already applied maximum number of times
+		if (_targetWeapon.upgradesApplied[upgradeType] >= WeaponType.MaxUpgradesApplied)
+		{
+			return;
+		}
+
 		if (saveManager.TryConsumeTokens(upgradeTokenCost))
 		{
 			// TODO: I don't like this, it has a lot of repetition
@@ -70,16 +78,27 @@ public class WeaponUpgrade : MonoBehaviour
 				default:
 				{
 					Debug.LogWarning($"Trying to apply unknown upgrade type {upgradeType}");
-					break;
+					return;
 				}
 			}
 
-			Debug.Log(
-				$"new data: {_targetWeapon.attackSpeed} {_targetWeapon.damageMult} {_targetWeapon.projectileSpeed}"
-			);
+			saveManager.AddWeaponUpgrade(ToSavedUpgrade());
+			_targetWeapon.upgradesApplied[upgradeType] += 1;
+			upgradeCountDisplay.RefreshCount();
 		}
 	}
 
+	public SavedUpgrade ToSavedUpgrade()
+	{
+		return new SavedUpgrade
+		{
+			WeaponIndex = upgradeIdx,
+			UpgradeData = upgradeData,
+			UpgradeType = upgradeType,
+		};
+	}
+
+	[Serializable]
 	public enum UpgradeType
 	{
 		AttackDamage,
