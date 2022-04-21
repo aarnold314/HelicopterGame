@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1490,6 +1490,30 @@ PrefabInstance:
     - target: {fileID: 235513111354410879, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_GravityScale
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_Size.x
+      value: 8.861408
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1870475
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.89874077
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.077802
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682535228044598623, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 2484292980175521615, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: m_RootOrder
