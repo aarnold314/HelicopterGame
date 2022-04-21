@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class TempShopNav : MonoBehaviour
 {
     // public static int level = 0;
-    public string[] levels = {"Level1", "Level2", "Level3"};
-    public int index = 0;
+    public static string[] levels = {"Level1", "Level2", "Level3"};
+    public static int index = 0;
     // [SerializeField] public string sceneName;
 
     void Start()
