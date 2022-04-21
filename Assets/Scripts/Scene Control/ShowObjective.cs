@@ -10,6 +10,7 @@ public class ShowObjective : MonoBehaviour
     public GameObject taskScreen;
     [SerializeField] int sceneIndex;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class ShowObjective : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) && taskScreen.activeSelf)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(sceneIndex);
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
