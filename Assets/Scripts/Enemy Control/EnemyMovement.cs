@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 	[SerializeField] private float frequency = 5f;
 	[SerializeField] private float magnitude = 5f;
 
-	[SerializeField] float shootingFrequency = 0.5f;
+	// [SerializeField] float shootingFrequency = 0.5f;
 
 	public Vector2 speed = new Vector2(10, 10);
 	public bool hit = false;
