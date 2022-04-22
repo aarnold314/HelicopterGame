@@ -20,11 +20,11 @@ public class InputController : MonoBehaviour
 
     private void Start()
 	{
-		// Debug.LogWarning("TODO: merge this and the movement controller into a general InputController");
 		_weapon = Instantiate(helicopterData.availableWeapons[helicopterData.activeWeaponIdx], transform, false);
 		Debug.Log($"weapon stats: {_weapon.attackSpeed} {_weapon.damageMult} {_weapon.projectileSpeed}");
 	}
 
+    // Shooting aspect
 	private void Update()
 	{
 		// Reduce cooldown for the weapon if it exists

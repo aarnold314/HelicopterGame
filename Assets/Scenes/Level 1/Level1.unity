@@ -1420,6 +1420,10 @@ PrefabInstance:
       propertyPath: magnitude
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5354864522598884290, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: helicopterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a934d99688456115b728a9ba79def09, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
 --- !u!1 &725441571
@@ -2919,6 +2923,10 @@ PrefabInstance:
       propertyPath: magnitude
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5354864522598884290, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: helicopterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a934d99688456115b728a9ba79def09, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
 --- !u!1 &1474287242
@@ -3531,7 +3539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1688814495}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1688814498}
   explosionEffect: {fileID: 740256650625895604, guid: 51b55248a3348e19e902df98db8f5a30, type: 3}
   gameManager: {fileID: 11400000, guid: d427bd2a3cc57b6df817e3273c1b88eb, type: 2}
   health: {fileID: 1688814505}
@@ -4147,6 +4155,14 @@ PrefabInstance:
     - target: {fileID: 5354864522598884290, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
       propertyPath: magnitude
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354864522598884290, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: helicopterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a934d99688456115b728a9ba79def09, type: 2}
+    - target: {fileID: 5354864522598884290, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}
+      propertyPath: shootingFrequency
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bad45c6947f809c3a4dcc9c99f097b6, type: 3}

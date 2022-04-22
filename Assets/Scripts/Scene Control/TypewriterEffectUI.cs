@@ -19,8 +19,6 @@ public class TypewriterEffectUI : MonoBehaviour
 	void Start()
 	{
 		_text = GetComponent<Text>();
-		// _tmpProText = GetComponent<TMP_Text>()!;
-
 		if(_text != null)
         {
 			writer = _text.text;
@@ -28,14 +26,6 @@ public class TypewriterEffectUI : MonoBehaviour
 
 			StartCoroutine("TypeWriterText");
 		}
-
-		// if (_tmpProText != null)
-		// {
-		// 	writer = _tmpProText.text;
-		// 	_tmpProText.text = "";
-
-		// 	StartCoroutine("TypeWriterTMP");
-		// }
 	}
 
 	IEnumerator TypeWriterText()
@@ -60,27 +50,4 @@ public class TypewriterEffectUI : MonoBehaviour
 			_text.text = _text.text.Substring(0, _text.text.Length - leadingChar.Length);
 		}
 	}
-
-	// IEnumerator TypeWriterTMP()
-    // {
-    //     _tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
-
-    //     yield return new WaitForSeconds(delayBeforeStart);
-
-	// 	foreach (char c in writer)
-	// 	{
-	// 		if (_tmpProText.text.Length > 0)
-	// 		{
-	// 			_tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
-	// 		}
-	// 		_tmpProText.text += c;
-	// 		_tmpProText.text += leadingChar;
-	// 		yield return new WaitForSeconds(timeBtwChars);
-	// 	}
-
-	// 	if (leadingChar != "")
-	// 	{
-	// 		_tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
-	// 	}
-	// }
 }
