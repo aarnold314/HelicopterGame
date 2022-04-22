@@ -4,6 +4,8 @@ public class PlayerCollision : MonoBehaviour
 {
 	[SerializeField] private Health health;
 
+	public GameObject failScreen;
+
 	private const string enemyTag = "Enemy";
 	private const string groundTag = "Ground";
 
@@ -13,6 +15,8 @@ public class PlayerCollision : MonoBehaviour
 		if (collisionInfo.collider.CompareTag(enemyTag) || collisionInfo.collider.CompareTag(groundTag))
 		{
 			health.Kill();
+
+			failScreen.SetActive(true);
 		}
 	}
 }
