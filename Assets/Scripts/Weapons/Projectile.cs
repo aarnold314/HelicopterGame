@@ -6,14 +6,23 @@ public class Projectile : MonoBehaviour
 	public float radius;
 
 	private Collider2D _selfCollider;
+	private Renderer _renderer;
 
 	[SerializeField] private GameObject explosionEffect;
-
-	// TODO: Kill projectile when offscreen/time
 
 	private void Start()
 	{
 		_selfCollider = GetComponent<Collider2D>();
+		_renderer = GetComponent<Renderer>();
+	}
+
+	private void Update()
+	{
+		// Delete when offscreen
+		if (!_renderer.isVisible)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -39,7 +48,7 @@ public class Projectile : MonoBehaviour
 				var explosionEffectIns = Instantiate(explosionEffect, transform.position, Quaternion.identity);
 				explosionEffectIns.SetActive(true);
 				explosionEffectIns.transform.localScale *= new Vector2(radius, radius);
-				explosionEffectIns.transform.Translate(0, 100f, 0);
+				explosionEffectIns.transform.Translate(0, 20f, 0);
 				Destroy(explosionEffectIns, 1);
 			}
 		}

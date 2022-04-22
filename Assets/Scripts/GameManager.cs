@@ -7,7 +7,7 @@ public class GameManager : ScriptableObject
 	
 	public void GameOver()
 	{
-		saveManager.SaveGame("new");
+		saveManager.SaveGame("mainSave");
 		Debug.Log("Game Over");
 	}
 }

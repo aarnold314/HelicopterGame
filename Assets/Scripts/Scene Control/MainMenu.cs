@@ -6,13 +6,12 @@ public class MainMenu : MonoBehaviour
 {
 	[SerializeField] private SaveManager saveManager;
 
-	// TODO: proper save file locations
-	private const string testSavePath = "testsave";
+	private const string savePath = "mainSave";
 
 	public void PlayGame()
 	{
-		saveManager.CreateSaveIfNotExists(testSavePath);
-		saveManager.LoadGame(testSavePath);
+		saveManager.CreateSaveIfNotExists(savePath);
+		saveManager.LoadGame(savePath);
 		SceneManager.LoadScene("Objective1");
 	}
 

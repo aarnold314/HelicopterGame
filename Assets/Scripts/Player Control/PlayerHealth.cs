@@ -43,8 +43,6 @@ public class PlayerHealth : MonoBehaviour
 		explosionEffectIns.transform.Translate(0, 70f, 0);
 		Destroy(explosionEffectIns, 3);
 
-		
-
 		gameManager.GameOver();
 	}
 }

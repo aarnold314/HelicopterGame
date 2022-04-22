@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -21,7 +19,6 @@ public class InputController : MonoBehaviour
     private void Start()
 	{
 		_weapon = Instantiate(helicopterData.availableWeapons[helicopterData.activeWeaponIdx], transform, false);
-		Debug.Log($"weapon stats: {_weapon.attackSpeed} {_weapon.damageMult} {_weapon.projectileSpeed}");
 	}
 
     // Shooting aspect
