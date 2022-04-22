@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
 	public GameObject player;
-	[SerializeField] private PlayerMovement playerMovement;
+	[SerializeField] private InputController playerMovement;
 	[SerializeField] private GameObject explosionEffect;
 	[SerializeField] private GameManager gameManager;
 	[SerializeField] private Health health;
