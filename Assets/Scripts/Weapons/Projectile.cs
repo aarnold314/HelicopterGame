@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
 
 	private Collider2D _selfCollider;
 
+	[SerializeField] private GameObject explosionEffect;
+
 	// TODO: Kill projectile when offscreen/time
 
 	private void Start()
@@ -25,15 +27,20 @@ public class Projectile : MonoBehaviour
 		{
 			var contact = collision.GetContact(0);
 			// OverlapSphere gets **all** colliders in the sphere, including this projectile's collider, make sure to skip it
-			var collisionsInSphere = Physics.OverlapSphere(contact.point, radius);
-			foreach (var explosionCollider in collisionsInSphere)
+			var explosionColliders = Physics2D.OverlapCircleAll(contact.point, radius);
+			foreach (var explosionCollider in explosionColliders)
 			{
-				if (explosionCollider.GetComponent<Collider2D>() == _selfCollider)
+				if (explosionCollider == _selfCollider)
 				{
 					continue;
 				}
 
 				CollideWithGameObject(explosionCollider.gameObject);
+				var explosionEffectIns = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+				explosionEffectIns.SetActive(true);
+				explosionEffectIns.transform.localScale *= new Vector2(radius, radius);
+				explosionEffectIns.transform.Translate(0, 100f, 0);
+				Destroy(explosionEffectIns, 1);
 			}
 		}
 

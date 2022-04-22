@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 	}
 	public void OnDamageTaken(float damage)
 	{
+		healthSlider.value = health.CurrentHealth / health.MaxHealth;
 	}
 
 	public void OnKilled()

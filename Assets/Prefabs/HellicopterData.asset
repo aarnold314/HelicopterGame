@@ -15,6 +15,9 @@ MonoBehaviour:
   baseAvailableWeapons:
   - {fileID: 11400000, guid: a9716e88347cb81968780eb66d65f5b3, type: 2}
   - {fileID: 11400000, guid: 65fc1b58fe033758db3e25d9ac0f55aa, type: 2}
-  AvailableWeapons:
+  - {fileID: 11400000, guid: 8ee8ae1992acb4c4bb2007cc5ef7d639, type: 2}
+  availableWeapons:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   activeWeaponIdx: 0
