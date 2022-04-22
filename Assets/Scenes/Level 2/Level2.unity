@@ -1584,6 +1584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showScreen: {fileID: 1623990880}
   nextObjective: Objective3
+  nextScene: Shop
   waitTime: 5
 --- !u!23 &810880828
 MeshRenderer:

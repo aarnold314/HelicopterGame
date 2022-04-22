@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3/Level3.unity
     guid: 844d3b22693093c49abe1d9e07eb0c6a
+  - enabled: 1
+    path: Assets/Scenes/MissionComplete.unity
+    guid: 155e4d400a874924f9fd17cd73ec6a8c
   m_configObjects: {}

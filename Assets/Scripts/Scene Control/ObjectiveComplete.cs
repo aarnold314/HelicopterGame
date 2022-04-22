@@ -7,7 +7,7 @@ public class ObjectiveComplete : MonoBehaviour
 	// public GameObject pauseScreen;
 	public GameObject showScreen;
 	[SerializeField] private string nextObjective;
-
+	[SerializeField] string nextScene;
 	[SerializeField] float waitTime = 5f;
 
 	// Player reaches end zone
@@ -34,6 +34,6 @@ public class ObjectiveComplete : MonoBehaviour
 		yield return new WaitForSecondsRealtime(waitTime);
 		Time.timeScale = 1f;
 		NextSceneNavigation.NextScene = nextObjective;
-		SceneManager.LoadScene("Shop");
+		SceneManager.LoadScene(nextScene);
 	}
 }
