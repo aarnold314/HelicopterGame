@@ -2154,9 +2154,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Task 1: destroy 1 enemy helicopter
+  m_Text: 'Task 1: collect coins
 
-    Task 2: arrive at the checkpoint'
+    Task 2: arrive at the check point alive'
 --- !u!222 &802190834
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2570,7 +2570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Objective: secure check point 1 by eliminating enemy vehicles'
+  m_Text: 'Objective: Complete the mission by securing the final checkpoint'
 --- !u!222 &862014216
 CanvasRenderer:
   m_ObjectHideFlags: 0

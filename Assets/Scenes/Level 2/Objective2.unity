@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -521,7 +521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Task 1: destroy 1 enemy helicopter'
+  m_Text: 'Task 1: dodge moving enemies'
 --- !u!222 &296444214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1692,7 +1692,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Task 2: arrive at the checkpoint alive'
+  m_Text: 'Task 2: eliminate 1 tank'
 --- !u!222 &1574818500
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1959,7 +1959,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: secure check point 1 by eliminating enemy vehicles
+  m_Text: clear check point 2 by dodging enemies and shooting tanks
 --- !u!222 &1760757615
 CanvasRenderer:
   m_ObjectHideFlags: 0

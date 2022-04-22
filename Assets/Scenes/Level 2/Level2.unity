@@ -5102,7 +5102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Objective: secure check point 1 by eliminating enemy vehicles'
+  m_Text: 'Objective: clear check point 2 by dodging enemies and shooting tanks'
 --- !u!222 &1821808412
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6078,9 +6078,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Task 1: destroy 1 enemy helicopter
+  m_Text: 'Task 1: dodge moving enemies
 
-    Task 2: arrive at the checkpoint'
+    Task 2: eliminate 1 tank'
 --- !u!222 &2052059282
 CanvasRenderer:
   m_ObjectHideFlags: 0

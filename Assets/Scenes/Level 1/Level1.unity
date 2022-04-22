@@ -338,9 +338,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Task 1: destroy 1 enemy helicopter
+  m_Text: 'Task 1: left click or hit space to shoot
 
-    Task 2: arrive at the checkpoint'
+    Task 2: move with arrow
+    keys'
 --- !u!222 &114280436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2557,8 +2558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423.95, y: -283.9106}
-  m_SizeDelta: {x: 395.23, y: 108.3688}
+  m_AnchoredPosition: {x: -411.68405, y: -283.9106}
+  m_SizeDelta: {x: 419.7619, y: 108.3688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035703708
 MonoBehaviour:
