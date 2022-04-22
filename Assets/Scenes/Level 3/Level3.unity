@@ -2071,8 +2071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.5597, y: 0}
+  m_SizeDelta: {x: -3.1195, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &747300184
 PrefabInstance:
@@ -6044,7 +6044,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 740256650625895604, guid: 51b55248a3348e19e902df98db8f5a30, type: 3}
   gameManager: {fileID: 11400000, guid: d427bd2a3cc57b6df817e3273c1b88eb, type: 2}
   health: {fileID: 1981754186}
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 127113420}
 --- !u!114 &1981754186
 MonoBehaviour:
   m_ObjectHideFlags: 0
