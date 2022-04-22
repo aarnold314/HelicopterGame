@@ -7,11 +7,15 @@ public class Score : MonoBehaviour
     // reference to player
     public Transform player;
     public Text scoreText;
-    // public Slider slider;
+    public Slider slider;
 
     // public Health health;
     // public GameObject heli;
 
+    void Start ()
+    {
+        slider.value = 1;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +28,6 @@ public class Score : MonoBehaviour
         // Trying to grab health of player
         // health = heli.GetComponent<Health>();
         // Debug.Log(health);
-        // slider.value = health.CurrentHealth;
+        
     }
 }

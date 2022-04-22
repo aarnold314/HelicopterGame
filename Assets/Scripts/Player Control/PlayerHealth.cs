@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
 	[SerializeField] private GameObject explosionEffect;
 	[SerializeField] private GameManager gameManager;
 	[SerializeField] private Health health;
+	public Slider healthSlider;
 	private bool dead = false;
 
 	void Update ()
@@ -28,6 +30,8 @@ public class PlayerHealth : MonoBehaviour
 		playerMovement.enabled = false;
 		health.enabled = false;
 		dead = true;
+		Debug.Log("Dead");
+		healthSlider.value = 0;
 
 		player.GetComponent<BoxCollider2D>().enabled = false;
 
@@ -38,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
 		explosionEffectIns.transform.Translate(0, 70f, 0);
 		Destroy(explosionEffectIns, 3);
 
+		
 
 		gameManager.GameOver();
 	}
