@@ -4919,10 +4919,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1229182960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916a1eb22e28312a6b04b0dfc87901ed, type: 3}
+  m_Script: {fileID: 11500000, guid: ced6ccbe6b3b34e4ab6bd0572fed25c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetScene: Level1
 --- !u!114 &1229182963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4968,8 +4967,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1229182962}
-        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: TransitionScene
+        m_TargetAssemblyTypeName: NextSceneNavigation, Assembly-CSharp
+        m_MethodName: GoToNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

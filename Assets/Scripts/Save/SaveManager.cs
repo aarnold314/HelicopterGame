@@ -9,7 +9,7 @@ public class SaveManager : ScriptableObject
 	[SerializeField] private SettingsData settingsData;
 	[SerializeField] private HelicopterData helicopterData;
 
-	private Save _activeSave;
+	[HideInInspector] [SerializeField] private Save _activeSave;
 
 	/// <summary>
 	/// Loads a save from the specified path as the active save.
