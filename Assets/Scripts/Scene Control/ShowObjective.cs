@@ -5,13 +5,20 @@ public class ShowObjective : MonoBehaviour
 {
 	public GameObject objectiveScreen;
 	public GameObject taskScreen;
-	[SerializeField] string sceneName;
+	[SerializeField] private string sceneName;
+	[SerializeField] private bool saveGameOnTransition;
+	[SerializeField] private SaveManager saveManager;
 
 	// Update is called once per frame
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Return) && taskScreen.activeSelf)
 		{
+			if (saveGameOnTransition)
+			{
+				saveManager.SaveGame();
+			}
+
 			SceneManager.LoadScene(sceneName);
 		}
 

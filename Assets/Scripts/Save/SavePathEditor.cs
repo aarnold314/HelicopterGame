@@ -26,7 +26,6 @@ public class SavePathEditor : MonoBehaviour
 				fullPath = Path.GetDirectoryName(fullPath);
 			}
 
-			Debug.Log($"Setting save path to {fullPath}");
 			settingsData.saveFolder = fullPath;
 			inputText.text = fullPath;
 		}

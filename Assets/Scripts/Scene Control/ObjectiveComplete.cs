@@ -10,12 +10,13 @@ public class ObjectiveComplete : MonoBehaviour
 	[SerializeField] string nextScene;
 	[SerializeField] float waitTime = 5f;
 
+	[SerializeField] private SaveManager saveManager;
+
 	// Player reaches end zone
 	void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
 		if (collisionInfo.collider.CompareTag("Player"))
 		{
-			Debug.Log("Touchdown");
 			Freeze();
 		}
 	}

@@ -9,7 +9,8 @@ public class SaveManager : ScriptableObject
 	[SerializeField] private SettingsData settingsData;
 	[SerializeField] private HelicopterData helicopterData;
 
-	[HideInInspector] [SerializeField] private Save _activeSave;
+	private static string _activeSaveName;
+	[HideInInspector] [SerializeField] private Save activeSave;
 
 	/// <summary>
 	/// Loads a save from the specified path as the active save.
@@ -17,13 +18,13 @@ public class SaveManager : ScriptableObject
 	public void LoadGame(string fileName)
 	{
 		var fullPath = Path.Combine(settingsData.saveFolder, fileName);
-		Debug.Log($"Loading game from {fullPath}");
 
 		try
 		{
 			var saveText = File.ReadAllText(fullPath);
 			var loadedSave = JsonUtility.FromJson<Save>(saveText);
-			_activeSave = loadedSave;
+			activeSave = loadedSave;
+			_activeSaveName = fileName;
 		}
 		catch (Exception e) when (e is ArgumentException || e is PathTooLongException)
 		{
@@ -39,7 +40,7 @@ public class SaveManager : ScriptableObject
 		}
 
 		// Apply upgrades
-		foreach (var upgrade in _activeSave.weaponUpgrades)
+		foreach (var upgrade in activeSave.weaponUpgrades)
 		{
 			var weapon = helicopterData.availableWeapons[upgrade.WeaponIndex];
 			switch (upgrade.UpgradeType)
@@ -87,19 +88,16 @@ public class SaveManager : ScriptableObject
 
 			weapon.upgradesApplied[upgrade.UpgradeType] += 1;
 		}
-
-		Debug.Log("Successfully Loaded");
 	}
 
 	/// <summary>
-	/// Saves the active save to the specified path.
+	/// Saves the active save
 	/// </summary>
-	public void SaveGame(string fileName)
+	public void SaveGame()
 	{
-		var fullPath = Path.Combine(settingsData.saveFolder, fileName);
-		Debug.Log($"Saving game to {fullPath}");
+		var fullPath = Path.Combine(settingsData.saveFolder, _activeSaveName);
 
-		var json = JsonUtility.ToJson(_activeSave);
+		var json = JsonUtility.ToJson(activeSave);
 
 		var parentDir = Directory.GetParent(fullPath);
 		// If the parent of the specified path does not exist, create it
@@ -124,8 +122,6 @@ public class SaveManager : ScriptableObject
 		{
 			Debug.Log($"Unable to save to path {fullPath}");
 		}
-
-		Debug.Log("Successfully Saved");
 	}
 
 	public void CreateNewSave(string saveName)
@@ -133,12 +129,13 @@ public class SaveManager : ScriptableObject
 		var newSave = new Save
 		{
 			activeLevel = 1,
-			numTokens = 10,
+			numTokens = 0,
 			difficulty = 0,
 			weaponUpgrades = new List<SavedUpgrade>(),
 		};
-		_activeSave = newSave;
-		SaveGame(saveName);
+		activeSave = newSave;
+		_activeSaveName = saveName;
+		SaveGame();
 	}
 
 	public bool SaveExists(string saveName)
@@ -156,19 +153,25 @@ public class SaveManager : ScriptableObject
 
 	public void AddWeaponUpgrade(SavedUpgrade upgrade)
 	{
-		_activeSave.weaponUpgrades.Add(upgrade);
+		activeSave.weaponUpgrades.Add(upgrade);
 	}
 
 	public Action<int> OnTokensChanged;
 
 	public int Tokens
 	{
-		get => _activeSave.numTokens;
+		get => activeSave.numTokens;
 		set
 		{
-			_activeSave.numTokens = value;
+			activeSave.numTokens = value;
 			OnTokensChanged?.Invoke(value);
 		}
+	}
+
+	public int ActiveLevel
+	{
+		get { return activeSave.activeLevel; }
+		set { activeSave.activeLevel = value; }
 	}
 
 	/// <summary>

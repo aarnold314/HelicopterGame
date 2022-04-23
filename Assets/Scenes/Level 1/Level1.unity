@@ -5384,6 +5384,7 @@ MonoBehaviour:
   nextObjective: Objective2
   nextScene: Shop
   waitTime: 3
+  saveManager: {fileID: 11400000, guid: 926a0724d7d1df8f288f41544eac6c75, type: 2}
 --- !u!23 &1903558485
 MeshRenderer:
   m_ObjectHideFlags: 0

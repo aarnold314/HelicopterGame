@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
 		playerMovement.enabled = false;
 		health.enabled = false;
 		dead = true;
-		Debug.Log("Dead");
 		healthSlider.value = 0;
 
 		player.GetComponent<BoxCollider2D>().enabled = false;
